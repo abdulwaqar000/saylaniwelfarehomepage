@@ -61,16 +61,6 @@
     float: left;
 }
 
-.toggler {
-    width: 30px;
-    display: none;
-}
-
-.home {
-    background-color: #316DC3;
-    color: white;
-}
-
 .navigation-list a {
     text-decoration: none;
     display: inline-block;
@@ -80,6 +70,7 @@
     border-radius: 30px;
 }
 
+.home,
 .navigation-list a:hover {
     background-color: #316DC3;
     color: white;
@@ -447,6 +438,16 @@ hr {
     transform: scale(1.2);
 }
 
+.toggle-image {
+    width: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
 @media screen and (max-width: 800px) {
     .header {
         flex-direction: column;
@@ -555,10 +556,35 @@ hr {
     .navigation {
         justify-content: space-between;
     }
-    .navigation-content {
+    .navigation-list {
         display: none;
     }
-    .toggler {
+    .toggle-image {
         display: block;
+    }
+    .navigation-list {
+        display: block;
+        position: absolute;
+        left: -100%;
+        background-color: #F7F8FA;
+        top: 210px;
+        transition: all .5s;
+    }
+    .navigation-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        z-index: 1;
+    }
+    .navigation-list a {
+        display: block;
+        border-radius: 0px;
+        width: 100%;
+        text-align: left;
+        border: 1px solid gray;
+        margin-top: 1px;
+    }
+    #check:checked~.navigation-list {
+        left: 0%;
     }
 }
